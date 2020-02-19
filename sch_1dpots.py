@@ -13,7 +13,7 @@ sq2=sqrt(2.)
 nsize=40
 omega=1.
 m=1.
-#maximum length alon x
+#maximum length along x
 xmax=sqrt(2.*(nsize+.5)/(m*omega))*1.5
 alpha=m*omega
 def harmonicfun(x,n):
@@ -70,11 +70,12 @@ for i in range(0,nsize):
         if i==j:
             H_mat[i,j]=H_mat[i,j]+(j+.5)*omega
 eigen_E,eigen_V=LA.eig(H_mat)
+#sorting according to the ascending order of energies
 idx=np.argsort(eigen_E)
 eigen_E=eigen_E[idx]
 eigen_V=eigen_V[:,idx]
 #print the  wavefunctions
-#number of functions to print
+#number of functions and eigen energies to print
 iprintw=2
 iprinte=5
 wave_g=np.zeros((iprintw,ndiv))
